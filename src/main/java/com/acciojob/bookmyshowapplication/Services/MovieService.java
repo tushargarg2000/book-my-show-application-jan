@@ -15,9 +15,6 @@ public class MovieService {
 
     public String addMovie(AddMovieRequest movieRequest){
 
-
-        //Old Method : create an object using the Constructor
-
         //new Method : create Object using the Builder annotation:
         Movie movie = Movie.builder()
                 .movieLanguage(movieRequest.getMovieLanguage())
@@ -29,7 +26,6 @@ public class MovieService {
 
         movie = movieRepository.save(movie);
         return "The movie has been saved with the movieId"+movie.getMovieId();
-
     }
 
 }

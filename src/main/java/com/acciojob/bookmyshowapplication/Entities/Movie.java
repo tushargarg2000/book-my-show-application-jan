@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "movies")
+@Table(name = "movie_info")
 @Data
 @Builder
 @AllArgsConstructor
@@ -22,13 +22,15 @@ public class Movie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String movieId;
+    private Integer movieId;
 
     @Column(unique = true,nullable = false)
     private String movieName;
 
     @Enumerated(value = EnumType.STRING)
     private Genre genre;
+
+    private double rating;
 
     @Enumerated(value = EnumType.STRING)
     private Language movieLanguage;
