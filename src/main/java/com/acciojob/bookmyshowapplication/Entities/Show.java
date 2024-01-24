@@ -1,5 +1,6 @@
 package com.acciojob.bookmyshowapplication.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,7 +10,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -18,6 +21,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "shows")
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class Show {
 
@@ -30,10 +35,11 @@ public class Show {
     private LocalTime showTime;
 
     @JoinColumn
+    @JsonIgnore
     @ManyToOne
     private Movie movie;
 
-
+    @JsonIgnore
     @JoinColumn
     @ManyToOne
     private Theater theater;
@@ -44,4 +50,9 @@ public class Show {
     @OneToMany(mappedBy = "show",cascade = CascadeType.ALL)
     private List<Ticket> ticketList = new ArrayList<>();
 
+
+    public Show(LocalDate showDate, LocalTime showTime) {
+        this.showDate = showDate;
+        this.showTime = showTime;
+    }
 }

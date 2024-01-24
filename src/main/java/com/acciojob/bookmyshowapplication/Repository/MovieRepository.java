@@ -5,6 +5,7 @@ import com.acciojob.bookmyshowapplication.Enums.Language;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 
 public interface MovieRepository extends JpaRepository<Movie,Integer> {
@@ -14,7 +15,6 @@ public interface MovieRepository extends JpaRepository<Movie,Integer> {
     //but naming of the method has to be strict
 
     Movie findMovieByMovieNameAndAndMovieLanguage(String movieName, Language language);
-
 
     Movie findMovieByMovieName(String movieName);
 

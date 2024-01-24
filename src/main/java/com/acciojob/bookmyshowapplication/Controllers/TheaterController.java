@@ -21,7 +21,6 @@ public class TheaterController {
 
         String result = theaterService.addTheater(addTheaterRequest);
         return result;
-
     }
 
 
