@@ -35,8 +35,8 @@ public class Show {
     private LocalTime showTime;
 
     @JoinColumn
-    @JsonIgnore
     @ManyToOne
+    @JsonIgnore
     private Movie movie;
 
     @JsonIgnore

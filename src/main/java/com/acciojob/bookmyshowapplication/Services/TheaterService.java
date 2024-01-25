@@ -38,6 +38,9 @@ public class TheaterService {
 
         int remClassic = noOfClassicSeats%5;
 
+        //TODO Make sure the theater Seats are unique
+        //So that you dont need to store the seatType
+
         List<TheaterSeat> theaterSeatList = new ArrayList<>();
 
         for(int row = 1;row<=quoClassic;row++){
